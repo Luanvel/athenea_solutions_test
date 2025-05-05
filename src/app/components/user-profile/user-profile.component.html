@@ -1,1 +1,9 @@
-<p>user-profile works!</p>
+<div *ngIf="user">
+    <h2>{{ user.name }} {{ user.surname }}</h2>
+    <p>Email: {{ user.email }}</p>
+    <p>DNI: {{ user.id }}</p>
+</div>
+
+<div *ngIf="!user">
+    <p>L'usuari no està registrat.</p>
+</div>
