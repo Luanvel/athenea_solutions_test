@@ -12,6 +12,10 @@ export class UserService {
   constructor(private http: HttpClient) { } //Quan es crei el servei, injecta el HttpClient per les peticions
 
   getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(this.jsonUrl);
+    return this.http.get<User[]>('http://localhost:3000/users');
+  }
+
+  addUsers(user: User): Observable<any> {
+    return this.http.post('http://localhost:3000/users', user); //S'envia l'user al backend
   }
 }
