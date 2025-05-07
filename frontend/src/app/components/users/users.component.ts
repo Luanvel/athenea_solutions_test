@@ -4,15 +4,20 @@ import { User } from '../../model/user.model';
 import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router'; //Només s'injecta al constructor
 
+//UI
+import { MatTableModule } from '@angular/material/table';
+
+
 @Component({
   selector: 'app-users',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MatTableModule],
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
   users: User[] = [];
+  displayedColumns: string[] = ['name', 'surname', 'email', 'id'];
 
   constructor(private userService: UserService, private router: Router) { }
 

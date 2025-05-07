@@ -1,33 +1,32 @@
-<h2>Registrar nou usuari</h2>
+<h2>REGISTRAR NOU USUARI</h2>
 
 <form [formGroup]="newUserForm" (ngSubmit)="onSubmit()">
-    <div>
-        <label>
-            Nom:
-            <input type="text" formControlName="name">
-        </label>
-    </div>
 
-    <div>
-        <label>
-            Cognoms:
-            <input type="text" formControlName="surname">
-        </label>
-    </div>
+    <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Nom</mat-label>
+        <input matInput formControlName="name" required>
+        <mat-error *ngIf="newUserForm.get('name')?.hasError('required')">El nom és obligatori!</mat-error>
+    </mat-form-field>
 
-    <div>
-        <label>
-            Email:
-            <input type="email" formControlName="email">
-        </label>
-    </div>
+    <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Cognoms</mat-label>
+        <input matInput formControlName="surname" required>
+        <mat-error *ngIf="newUserForm.get('surname')?.hasError('required')">Els cognoms són obligatoris!</mat-error>
+    </mat-form-field>
 
-    <div>
-        <label>
-            DNI:
-            <input type="text" formControlName="id">
-        </label>
-    </div>
+    <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" required>
+        <mat-error *ngIf="newUserForm.get('email')?.hasError('required')">El camp d'email és obligatori!</mat-error>
+        <mat-error *ngIf="newUserForm.get('email')?.hasError('email')">Format d'email invàlid!</mat-error>
+    </mat-form-field>
 
-    <button type="submit">Registrar</button>
+    <mat-form-field appearance="outline" class="form-field">
+        <mat-label>DNI</mat-label>
+        <input matInput formControlName="id" required>
+        <mat-error *ngIf="newUserForm.get('id')?.hasError('required')">El DNI és obligatori</mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">Registrar</button>
+
 </form>
