@@ -1,1 +1,33 @@
-<p>new-user-form works!</p>
+<h2>Registrar nou usuari</h2>
+
+<form [formGroup]="newUserForm" (ngSubmit)="onSubmit()">
+    <div>
+        <label>
+            Nom:
+            <input type="text" formControlName="name">
+        </label>
+    </div>
+
+    <div>
+        <label>
+            Cognoms:
+            <input type="text" formControlName="surname">
+        </label>
+    </div>
+
+    <div>
+        <label>
+            Email:
+            <input type="email" formControlName="email">
+        </label>
+    </div>
+
+    <div>
+        <label>
+            DNI:
+            <input type="text" formControlName="id">
+        </label>
+    </div>
+
+    <button type="submit">Registrar</button>
+</form>

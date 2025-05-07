@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'; //Només s'injecta al constructor
-import { User } from '../../models/user.model';
+import { User } from '../../model/user.model';
 import { UserService } from '../../services/user.service';
 import { CommonModule } from '@angular/common';
 
@@ -23,11 +23,9 @@ export class UserProfileComponent {
       if (id) {
         this.userId = id;
         this.userService.getUsers().subscribe(users => {
-          this.user = users.find(u => u.id === id);
+          this.user = users.find(user => user.id === id);
         });
       }
     });
   }
-
-
 }

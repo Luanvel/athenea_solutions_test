@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs'; //Poder utilitzar dades asíncrones
-import { User } from '../models/user.model';  // Interfaç del model
+import { User } from '../model/user.model';  // Interfaç del model
 
 @Injectable({
   providedIn: 'root'
