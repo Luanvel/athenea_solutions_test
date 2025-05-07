@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ReactiveFormsModule, FormBuilder, FormGroup, Validators, FormGroupDirective } from '@angular/forms';
 import { User } from '../../model/user.model';
 import { UserService } from '../../services/user.service';
 
@@ -37,14 +37,16 @@ export class NewUserFormComponent {
     });
   }
 
-  onSubmit(): void {
+  onSubmit(formDirective: FormGroupDirective): void {
     const newUser: User = this.newUserForm.value as User;
     console.warn('S\'ha registrat l\'usuari: ', newUser);
 
     this.userService.addUsers(newUser).subscribe({
       next: (v) => {
         console.log('Resposta del servidor:', v);
-        this.newUserForm.reset();
+        formDirective.resetForm();
+
+        alert("S'ha registrat l'usuari exitosament");
       },
       error: (e) => {
         console.error('Error enviant usuari:', e);

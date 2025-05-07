@@ -1,6 +1,6 @@
 <h2>REGISTRAR NOU USUARI</h2>
 
-<form [formGroup]="newUserForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="newUserForm" (ngSubmit)="onSubmit(formDirective)" #formDirective="ngForm">
 
     <mat-form-field appearance="outline" class="form-field">
         <mat-label>Nom</mat-label>
