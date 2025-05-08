@@ -22,4 +22,16 @@ table {
     width: 70%;
     margin: 0 auto;
   }
-  
+
+  .table-options {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 1em;
+  }
+
+  button {
+      max-height: 4em;
+      padding: 0 1em;
+      margin-top: 0.5em;
+      margin-left: 2em;
+  }

@@ -1,21 +1,25 @@
 <h2>LLISTA D'USUARIS</h2>
 
-<button mat-raised-button color="primary" (click)="exportToPDF()">
-    <i class="fa-solid fa-file-pdf"></i> Exportar PDF
-</button>
-
-<button mat-raised-button color="accent" (click)="exportToExcel()">
-    <i class="fa-solid fa-file-excel"></i> Exportar Excel
-</button>
-
-
 <div class="table-container">
 
     <!-- Filtre -->
-    <mat-form-field appearance="fill" class="filter-field">
-        <mat-label>Filtrar usuaris</mat-label>
-        <input matInput (keyup)="applyFilter($event)" placeholder="Escriu aquí...">
-    </mat-form-field>
+    <div class="table-options">
+        <mat-form-field appearance="fill" class="filter-field">
+            <mat-label>Filtrar usuaris</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Escriu aquí...">
+        </mat-form-field>
+
+        <div>
+            <button mat-raised-button color="primary" (click)="exportPDF()">
+                <i class="fa-solid fa-file-pdf"></i> Exportar PDF
+            </button>
+
+            <button mat-raised-button color="primary" (click)="exportExcel()">
+                <i class="fa-solid fa-file-excel"></i> Exportar Excel
+            </button>
+        </div>
+    </div>
+
 
     <!-- Taula -->
     <table mat-table [dataSource]="users" matSort class="mat-elevation-z8">
