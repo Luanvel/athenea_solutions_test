@@ -1,29 +1,46 @@
 <h2>LLISTA D'USUARIS</h2>
 
-<div class="table-container">
-    <table mat-table [dataSource]="users" class="mat-elevation-z8">
+<button mat-raised-button color="primary" (click)="exportToPDF()">
+    <i class="fa-solid fa-file-pdf"></i> Exportar PDF
+</button>
 
-        <!-- Nom-->
+<button mat-raised-button color="accent" (click)="exportToExcel()">
+    <i class="fa-solid fa-file-excel"></i> Exportar Excel
+</button>
+
+
+<div class="table-container">
+
+    <!-- Filtre -->
+    <mat-form-field appearance="fill" class="filter-field">
+        <mat-label>Filtrar usuaris</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Escriu aquí...">
+    </mat-form-field>
+
+    <!-- Taula -->
+    <table mat-table [dataSource]="users" matSort class="mat-elevation-z8">
+
+        <!-- Nom -->
         <ng-container matColumnDef="name">
-            <th mat-header-cell *matHeaderCellDef> Nom </th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Nom </th>
             <td mat-cell *matCellDef="let user" (click)="goToProfile(user.id)"> {{ user.name }} </td>
         </ng-container>
 
         <!-- Cognoms -->
         <ng-container matColumnDef="surname">
-            <th mat-header-cell *matHeaderCellDef> Cognoms </th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Cognoms </th>
             <td mat-cell *matCellDef="let user" (click)="goToProfile(user.id)"> {{ user.surname }} </td>
         </ng-container>
 
         <!-- Email -->
         <ng-container matColumnDef="email">
-            <th mat-header-cell *matHeaderCellDef> Email </th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
             <td mat-cell *matCellDef="let user" (click)="goToProfile(user.id)"> {{ user.email }} </td>
         </ng-container>
 
         <!-- DNI -->
         <ng-container matColumnDef="id">
-            <th mat-header-cell *matHeaderCellDef> DNI </th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> DNI </th>
             <td mat-cell *matCellDef="let user" (click)="goToProfile(user.id)"> {{ user.id }} </td>
         </ng-container>
 
@@ -31,4 +48,7 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="goToProfile(row.id)"></tr>
     </table>
+
+    <!-- Paginador -->
+    <mat-paginator [pageSizeOptions]="[3, 5]" showFirstLastButtons></mat-paginator>
 </div>
