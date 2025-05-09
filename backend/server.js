@@ -2,6 +2,8 @@ const express = require('express');
 const fs = require('fs');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const cron = require('node-cron');
+const path = require('path');
 
 const app = express();
 const PORT = 3000;
@@ -37,6 +39,18 @@ app.post('/users', (req, res) => {
             }
             res.send({ message: 'S\'ha registrat l\'usuari nou' });
         });
+    });
+});
+
+//Extra: Guardar backup del json a les 00.00h
+
+cron.schedule('* * * * *', () => {
+    const today = new Date().toISOString().split('T')[0];
+    const backupFile = `users_${today}.json`;
+    console.log("Començant a exportar l'arxiu del dia " + today + "...")
+
+    fs.copyFile(USERS_JSON, path.join(__dirname, 'backup', backupFile), () => {
+        console.log(`Backup creat: ${backupFile}`);
     });
 });
 
