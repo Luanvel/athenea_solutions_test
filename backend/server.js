@@ -47,7 +47,7 @@ app.post('/users', (req, res) => {
 cron.schedule('0 0 * * *', () => {
     const today = new Date().toISOString().split('T')[0];
     const backupFile = `users_${today}.json`;
-    console.log("Començant a exportar l'arxiu del dia " + today + "...")
+    console.log(`Començant a exportar l'arxiu del dia ${today} ...`)
 
     fs.copyFile(USERS_JSON, path.join(__dirname, 'backup', backupFile), () => {
         console.log(`Backup creat: ${backupFile}`);

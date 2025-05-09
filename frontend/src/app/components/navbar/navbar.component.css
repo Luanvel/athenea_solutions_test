@@ -1,4 +1,29 @@
-.logo {
+.nav-desktop {
+  display: none;
+}
+
+.logo-container {
+  flex: 1 1 auto;
+}
+
+@media (min-width: 768px) {
+  .nav-desktop {
+    display: inline-flex;
+  }
+  .mobile-toggle {
+    display: none;
+  }
+
+  .logo {
     height: 2em;
-    padding-left: 2em;
+    margin-left: 1em;
+  }
+}
+
+@media (max-width: 768px) {
+  .logo {
+    height: 1em;
+    margin-left: 1em;
+    margin-top: 0.5em;
+  }
 }
