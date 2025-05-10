@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./backend/users.json:/app/users.json
+      - ./backend/backup:/app/backup
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "4200:80" #4200 frontend, 80 nginx
+    depends_on:
+      - backend
