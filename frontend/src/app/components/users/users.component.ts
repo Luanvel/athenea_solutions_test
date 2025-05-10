@@ -20,13 +20,20 @@ import * as XLSX from 'xlsx';
 //UI
 import { MatTableModule } from '@angular/material/table';
 
-
 @Component({
   selector: 'app-users',
   standalone: true,
-  imports: [CommonModule, MatTableModule, MatFormFieldModule, MatInputModule, MatSortModule, MatPaginatorModule, MatButtonModule],
+  imports: [
+    CommonModule,
+    MatTableModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSortModule,
+    MatPaginatorModule,
+    MatButtonModule,
+  ],
   templateUrl: './users.component.html',
-  styleUrls: ['./users.component.css']
+  styleUrls: ['./users.component.css'],
 })
 export class UsersComponent implements OnInit {
   users = new MatTableDataSource<User>();
@@ -35,11 +42,11 @@ export class UsersComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private userService: UserService, private router: Router) {}
 
   ngOnInit(): void {
-    this.userService.getUsers().subscribe(data => {
-      this.users.data = data;  // assignar les dades
+    this.userService.getUsers().subscribe((data) => {
+      this.users.data = data; // assignar les dades
       this.users.paginator = this.paginator; // paginació
       this.users.sort = this.sort; // ordenació
     });
@@ -59,7 +66,12 @@ export class UsersComponent implements OnInit {
 
     autoTable(doc, {
       head: [['Nom', 'Cognoms', 'Email', 'DNI']],
-      body: this.users.data.map(user => [user.name, user.surname, user.email, user.id]),
+      body: this.users.data.map((user) => [
+        user.name,
+        user.surname,
+        user.email,
+        user.id,
+      ]),
     });
 
     doc.save('usuaris.pdf');

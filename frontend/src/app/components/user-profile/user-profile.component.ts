@@ -12,23 +12,26 @@ import { MatCardModule } from '@angular/material/card';
   selector: 'app-user-profile',
   imports: [CommonModule, MatCardModule],
   templateUrl: './user-profile.component.html',
-  styleUrl: './user-profile.component.css'
+  styleUrl: './user-profile.component.css',
 })
 export class UserProfileComponent {
-
   userId: string = '';
   user: User | undefined;
   userPhoto: string = '';
 
-  constructor(private route: ActivatedRoute, private userService: UserService, private randomUserService: RandomUserService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private userService: UserService,
+    private randomUserService: RandomUserService
+  ) {}
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
+    this.route.paramMap.subscribe((params) => {
       const id = params.get('id');
       if (id) {
         this.userId = id;
-        this.userService.getUsers().subscribe(users => {
-          this.user = users.find(user => user.id === id);
+        this.userService.getUsers().subscribe((users) => {
+          this.user = users.find((user) => user.id === id);
         });
 
         //Aconseguir la imatge random desde l'API

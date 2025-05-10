@@ -1,22 +1,42 @@
 <mat-toolbar color="primary">
-    <span class="logo-container">
-        <a routerLink="/">
-            <img class="logo" src="./logo_alineat.png" alt="logo athenea solutions">
-        </a>
-    </span>
+  <span class="logo-container">
+    <a routerLink="/">
+      <img class="logo" src="./logo_alineat.png" alt="logo athenea solutions" />
+    </a>
+  </span>
 
-    <!-- Links visibles solo en desktop -->
-    <a mat-button routerLink="/users" routerLinkActive="active-link" class="nav-desktop">LLISTA USUARIS</a>
-    <a mat-button routerLink="/newuser_form" routerLinkActive="active-link" class="nav-desktop">NOU USUARI</a>
+  <!-- Links visibles solo en desktop -->
+  <a
+    mat-button
+    routerLink="/users"
+    routerLinkActive="active-link"
+    class="nav-desktop"
+    >LLISTA USUARIS</a
+  >
+  <a
+    mat-button
+    routerLink="/newuser_form"
+    routerLinkActive="active-link"
+    class="nav-desktop"
+    >NOU USUARI</a
+  >
 
-    <!-- Botón hamburguesa solo en móvil -->
-    <button mat-icon-button [matMenuTriggerFor]="menu" class="mobile-toggle">
-        <mat-icon>menu</mat-icon>
-    </button>
+  <!-- Botón hamburguesa solo en móvil -->
+  <button mat-icon-button [matMenuTriggerFor]="menu" class="mobile-toggle">
+    <mat-icon>menu</mat-icon>
+  </button>
 </mat-toolbar>
 
 <!-- Menú desplegable -->
 <mat-menu #menu="matMenu">
-    <button mat-menu-item routerLink="/users" routerLinkActive="active-link">LLISTA USUARIS</button>
-    <button mat-menu-item routerLink="/newuser_form" routerLinkActive="active-link">NOU USUARI</button>
+  <button mat-menu-item routerLink="/users" routerLinkActive="active-link">
+    LLISTA USUARIS
+  </button>
+  <button
+    mat-menu-item
+    routerLink="/newuser_form"
+    routerLinkActive="active-link"
+  >
+    NOU USUARI
+  </button>
 </mat-menu>

@@ -9,14 +9,18 @@ import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 
-
-
 @Component({
   selector: 'app-navbar',
-  imports: [RouterModule, MatToolbarModule, MatButtonModule, MatSidenavModule, MatListModule, MatIconModule, MatMenuModule],
+  imports: [
+    RouterModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatListModule,
+    MatIconModule,
+    MatMenuModule,
+  ],
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css'
+  styleUrl: './navbar.component.css',
 })
-export class NavbarComponent {
-
-}
+export class NavbarComponent {}

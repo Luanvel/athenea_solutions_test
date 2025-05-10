@@ -1,32 +1,44 @@
 <h2>REGISTRAR NOU USUARI</h2>
 
-<form [formGroup]="newUserForm" (ngSubmit)="onSubmit(formDirective)" #formDirective="ngForm">
+<form
+  [formGroup]="newUserForm"
+  (ngSubmit)="onSubmit(formDirective)"
+  #formDirective="ngForm"
+>
+  <mat-form-field appearance="outline" class="form-field">
+    <mat-label>Nom</mat-label>
+    <input matInput formControlName="name" required />
+    <mat-error *ngIf="newUserForm.get('name')?.hasError('required')"
+      >El nom és obligatori!</mat-error
+    >
+  </mat-form-field>
 
-    <mat-form-field appearance="outline" class="form-field">
-        <mat-label>Nom</mat-label>
-        <input matInput formControlName="name" required>
-        <mat-error *ngIf="newUserForm.get('name')?.hasError('required')">El nom és obligatori!</mat-error>
-    </mat-form-field>
+  <mat-form-field appearance="outline" class="form-field">
+    <mat-label>Cognoms</mat-label>
+    <input matInput formControlName="surname" required />
+    <mat-error *ngIf="newUserForm.get('surname')?.hasError('required')"
+      >Els cognoms són obligatoris!</mat-error
+    >
+  </mat-form-field>
 
-    <mat-form-field appearance="outline" class="form-field">
-        <mat-label>Cognoms</mat-label>
-        <input matInput formControlName="surname" required>
-        <mat-error *ngIf="newUserForm.get('surname')?.hasError('required')">Els cognoms són obligatoris!</mat-error>
-    </mat-form-field>
+  <mat-form-field appearance="outline" class="form-field">
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email" required />
+    <mat-error *ngIf="newUserForm.get('email')?.hasError('required')"
+      >El camp d'email és obligatori!</mat-error
+    >
+    <mat-error *ngIf="newUserForm.get('email')?.hasError('email')"
+      >Format d'email invàlid!</mat-error
+    >
+  </mat-form-field>
 
-    <mat-form-field appearance="outline" class="form-field">
-        <mat-label>Email</mat-label>
-        <input matInput formControlName="email" required>
-        <mat-error *ngIf="newUserForm.get('email')?.hasError('required')">El camp d'email és obligatori!</mat-error>
-        <mat-error *ngIf="newUserForm.get('email')?.hasError('email')">Format d'email invàlid!</mat-error>
-    </mat-form-field>
+  <mat-form-field appearance="outline" class="form-field">
+    <mat-label>DNI</mat-label>
+    <input matInput formControlName="id" required />
+    <mat-error *ngIf="newUserForm.get('id')?.hasError('required')"
+      >El DNI és obligatori</mat-error
+    >
+  </mat-form-field>
 
-    <mat-form-field appearance="outline" class="form-field">
-        <mat-label>DNI</mat-label>
-        <input matInput formControlName="id" required>
-        <mat-error *ngIf="newUserForm.get('id')?.hasError('required')">El DNI és obligatori</mat-error>
-    </mat-form-field>
-
-    <button mat-raised-button color="primary" type="submit">Registrar</button>
-
+  <button mat-raised-button color="primary" type="submit">Registrar</button>
 </form>

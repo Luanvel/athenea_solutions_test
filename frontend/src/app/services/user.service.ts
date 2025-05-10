@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs'; //Poder utilitzar dades asíncrones
-import { User } from '../model/user.model';  // Interfaç del model
+import { User } from '../model/user.model'; // Interfaç del model
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService {
   jsonUrl = '/users.json';
 
-  constructor(private http: HttpClient) { } //Quan es crei el servei, injecta el HttpClient per les peticions
+  constructor(private http: HttpClient) {} //Quan es crei el servei, injecta el HttpClient per les peticions
 
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>('http://localhost:3000/users');
