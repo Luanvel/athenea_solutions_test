@@ -13,8 +13,7 @@ _Aplicació que permet gestionar usuaris mitjançant Angular (Frontend) i Nodejs
 * **Clona aquest repositori:** _git clone https://github.com/Luanvel/athenea_solutions_test.git_
 * **Situat a la carpeta arrel:** _cd athenea_solutions_test_
 * **Executa a la terminal** _docker-compose up --build_
-* **Accedeix a l'aplicació**  _Es pot fer fent click al Port (frontend-1 80:80) al docker desktop o accedint a:_
-                                  _Frontend: [http://localhost:80](http://localhost:80)_
+* **Accedeix a l'aplicació**  _Es pot fer fent click al Port (frontend-1 80:80) al docker desktop o accedint al Frontend: [http://localhost:80](http://localhost:80)_
 
   ---
 
