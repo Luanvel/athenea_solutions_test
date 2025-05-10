@@ -12,6 +12,6 @@ services:
   frontend:
     build: ./frontend
     ports:
-      - "4200:80" #4200 frontend, 80 nginx
+      - "80:80"
     depends_on:
       - backend

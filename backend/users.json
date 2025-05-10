@@ -52,5 +52,11 @@
     "surname": "Test2",
     "email": "test2@test.com",
     "id": "test123"
+  },
+  {
+    "name": "Test3",
+    "surname": "Test3",
+    "email": "test3@gmail.com",
+    "id": "test123"
   }
 ]
