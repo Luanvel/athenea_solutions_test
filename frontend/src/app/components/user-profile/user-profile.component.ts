@@ -34,10 +34,10 @@ export class UserProfileComponent {
           this.user = users.find((user) => user.id === id);
         });
 
-        //Aconseguir la imatge random desde l'API
-        const gender = Math.random() < 0.5 ? 'men' : 'women';
-        const randomNumber = Math.floor(Math.random() * 99);
-        this.userPhoto = `https://randomuser.me/api/portraits/${gender}/${randomNumber}.jpg`;
+        //Aconseguir l'imatge random desde l'API
+        this.randomUserService.getUserPhoto().subscribe((response) => {
+          this.userPhoto = response.results[0].picture.large;
+        });
       }
     });
   }

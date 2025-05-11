@@ -43,7 +43,6 @@ app.post("/users", (req, res) => {
 });
 
 //Extra: Guardar backup del json a les 00.00h
-
 cron.schedule("0 0 * * *", () => {
   const today = new Date().toISOString().split("T")[0];
   const backupFile = `users_${today}.json`;

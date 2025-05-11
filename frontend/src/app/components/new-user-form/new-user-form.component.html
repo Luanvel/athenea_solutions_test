@@ -1,10 +1,12 @@
 <h2>REGISTRAR NOU USUARI</h2>
 
+<!-- Form per registrar un nou usuari -->
 <form
   [formGroup]="newUserForm"
   (ngSubmit)="onSubmit(formDirective)"
   #formDirective="ngForm"
 >
+  <!-- NOM -->
   <mat-form-field appearance="outline" class="form-field">
     <mat-label>Nom</mat-label>
     <input matInput formControlName="name" required />
@@ -13,6 +15,7 @@
     >
   </mat-form-field>
 
+  <!-- COGNOMS -->
   <mat-form-field appearance="outline" class="form-field">
     <mat-label>Cognoms</mat-label>
     <input matInput formControlName="surname" required />
@@ -21,6 +24,7 @@
     >
   </mat-form-field>
 
+  <!-- EMAIL -->
   <mat-form-field appearance="outline" class="form-field">
     <mat-label>Email</mat-label>
     <input matInput formControlName="email" required />
@@ -32,6 +36,7 @@
     >
   </mat-form-field>
 
+  <!-- DNI -->
   <mat-form-field appearance="outline" class="form-field">
     <mat-label>DNI</mat-label>
     <input matInput formControlName="id" required />
@@ -40,5 +45,6 @@
     >
   </mat-form-field>
 
+  <!-- SUBMIT -->
   <button mat-raised-button color="primary" type="submit">Registrar</button>
 </form>
